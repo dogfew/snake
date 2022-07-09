@@ -3,7 +3,7 @@
 ### Как запустить игру? 
 ```python main.py``` - запустить игру 
 
-```python main.py level_name``` запустить игру с картой level_name.csv из папки levels
+```python main.py level_name``` запустить игру с картой ```level_name.csv``` из папки ```levels```
 
 ### Как играть? 
 
