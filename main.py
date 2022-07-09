@@ -38,7 +38,7 @@ def main(name):
         screen.blit(surf, surf.get_rect(topright=(950, 5)))
 
         pygame.display.update()
-        clock.tick(min(5 + snake.size, 60))
+        clock.tick(min(5 + snake.size // 3, 60))
 
 
 if __name__ == '__main__':

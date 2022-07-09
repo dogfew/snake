@@ -20,9 +20,7 @@ class Snake(pygame.sprite.Sprite):
             self.__init__(len(level.snake), level.snake)
 
     def move(self):
-        keys = pygame.key.get_pressed()
-        mouse = sum(pygame.mouse.get_pressed())
-        if mouse:
+        if any(pygame.mouse.get_pressed()):
             x, y = pygame.mouse.get_pos()
             dx = self.x - x
             dy = self.y - y
@@ -37,6 +35,8 @@ class Snake(pygame.sprite.Sprite):
                 elif dx > 0 and not self.moving[0]:
                     self.moving = (-1, 0)
             return
+
+        keys = pygame.key.get_pressed()
         if (keys[pygame.K_w] or keys[pygame.K_UP]) and not self.moving[1]:
             self.moving = (0, -1)
         elif (keys[pygame.K_s] or keys[pygame.K_DOWN]) and not self.moving[1]:
@@ -59,7 +59,6 @@ class Snake(pygame.sprite.Sprite):
                 self.x = level.width
             elif self.x == level.width:
                 self.x = 0
-            if (self.x, self.y) != self.body[-1]:
-                self.body.append((self.x, self.y))
+            self.body.append((self.x, self.y))
             self.body = self.body[-self.size:]
         self.destroy(level)
