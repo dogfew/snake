@@ -11,7 +11,6 @@ def choose_level(screen, width, height):
     font = pygame.font.SysFont('monospace', 30, True)
     length = len(os.listdir('levels'))
     surf = font.render(f"CHOOSE LEVEL NUMBER: {', '.join(map(str, range(length)))}", False, 'White')
-    screen.blit(surf, surf.get_rect(midbottom=(width // 2, height // 2)))
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
